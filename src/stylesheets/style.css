@@ -6,9 +6,6 @@ body {
 a {
   color: #00B7FF;
 }
-
-
-
 .gc {
   text-align: center;
   font-size: 40pt;
@@ -56,7 +53,7 @@ a {
   margin-top: -2.5%;
   font-weight: bold;
   font-size: 0.9em;
-  padding-top: 0.8%;
+
 }
 
 #messageBar{

@@ -1,15 +1,16 @@
 import HomePage from "./HomePage.js";
-
 import ErrorPage from "./ErrorPage.js";
+import ChatPage from "./ChatPage";
 
 
 const routes = {
   "/": HomePage,
+  "/ChatPage":ChatPage,
   "/error": ErrorPage,
 
 };
 
-let navBar = document.querySelector("#navBar");
+let page = document.querySelector("#page");
 let componentToRender;
 
 // dictionnary of routes
@@ -49,7 +50,7 @@ const Router = () => {
     }
   };
 
-  navBar.addEventListener("click", onNavigate);
+  page.addEventListener("click", onNavigate);
 
   // Display the right component when the user use the browsing history
   window.addEventListener("popstate", () => {
