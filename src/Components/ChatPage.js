@@ -9,7 +9,8 @@ let chatPage = `<div id="menuContainer">
 <div id="sendButton">Envoyer</div>
 `;
 
-const ChatPage = async () => {
+const ChatPage = async (e) => {
+  e.preventDefault();
   let page = document.querySelector("#page");
   page.innerHTML = chatPage;
   endPageAdd();

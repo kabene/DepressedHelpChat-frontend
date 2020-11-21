@@ -12,7 +12,7 @@ let endPage = `<div class="gc">
 <button type="button" class="btn btn-secondary" id="btnRel">relancer une discussion</button>`;
 
 const EndPage = () => {
-  setLayout("EndPage");
+  //setLayout("EndPage");
   let page = document.querySelector("#page");
   page.innerHTML = endPage;
 };

@@ -1,12 +1,13 @@
-
-import { setLayout } from "../utils/render.js";
+import {setLayout} from "../utils/render.js";
 import ChatPage from "./ChatPage";
+
 let homePage = `<div class="container body-content">
 <div class="container">
     <div class="row justify-content-center" style="padding-top:10px;">
         <img alt="Image html" width="50%" height="90%" style="max-height:500px;max-width:500px;"
             src="https://cdn.discordapp.com/attachments/770010112139853894/778555438005485568/Screenshot_2020-11-18_unknown_png_-_Vector_Magic.png"/>
     </div>
+    
         <div class="row justify-content-center">
             <div class="col-xs-4">
                 <div class="row justify-content-center" style="padding-top:10px;">
@@ -21,6 +22,7 @@ let homePage = `<div class="container body-content">
                 </div>
             </div>
         </div>
+    
     <div class="row justify-content-center" style="padding-top:10px;">
         <label>Cette application est un chatbot qui a pour objectif d&#39;aider des personnes a soucis emotionnels.<br/>
         Discutez avec lui, dites lui ce que vous desirez !</label>
@@ -41,20 +43,23 @@ let homePage = `<div class="container body-content">
 </div>
 </div>
 `;
-
+let nomUser = "";
 const HomePage = async () => {
-  setLayout("Home");
-  let page = document.querySelector("#page");
-  page.innerHTML  = homePage;
-  chatPageAdd();
-  cookieCall();
+    setLayout("Home");
+    let page = document.querySelector("#page");
+    page.innerHTML = homePage;
+    chatPageAdd();
+    cookieCall();
 };
 
-const chatPageAdd =()=>{
-    let chatpage=document.querySelector("#chatPage");
-    chatpage.onclick= ChatPage;
+const chatPageAdd = () => {
+    let chatpage = document.querySelector("#chatPage");
+    chatpage.onclick = ChatPage;
+    let nomUser = document.getElementById("name").value;
+    console.log(nomUser);
+
 }
-const cookieCall=()=>{
+const cookieCall = () => {
     var _createClass = function () {
         function e(e, o) {
             for (var t = 0; t < o.length; t++) {
