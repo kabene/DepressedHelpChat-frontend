@@ -37,12 +37,13 @@ a {
   border-radius: 100%;
   width: 50px;
   height: 50px;;
-  margin-left: 88%;
+  margin-left: 87%;
   text-align: center;
   margin-top: -2.5%;
   color: indianred;
   font-weight: bold;
   font-size: 30px;
+  cursor: pointer;
 }
 
 #endButton{
@@ -51,12 +52,13 @@ a {
   border-radius: 360px;;
   width: 160px;
   height: 50px;
-  margin-left: 91%;
+  margin-left: 90%;
   text-align: center;
   margin-top: -2.5%;
   font-weight: bold;
   font-size: 0.9em;
   padding-top: 0.8%;
+  cursor: pointer;
 }
 
 #messageBar{
@@ -70,6 +72,7 @@ a {
   height: 50px;
   padding-top: 0.1%;
   outline: none;
+  cursor: pointer;
 }
 
 #sendButton{
@@ -84,6 +87,7 @@ a {
   font-size: 0.9em;
   height: 50px;
   padding-top: 0.6%;
+  cursor: pointer;
 }
 
 #chatbox{
@@ -94,4 +98,54 @@ a {
   height: 70%;
   margin-left: 20%;
   border: 3px solid grey;
+  overflow: auto;
 }
+
+.box3 {
+  width: 300px;
+  margin: 10px 0px 10px 70%;;
+  border-radius: 15px;
+  background: #00bfb6;
+  color: #fff;
+  padding: 20px;
+  font-weight: 900;
+  font-family: arial;
+  position: relative;
+}
+
+
+/* speech bubble 13 */
+
+.sb13:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid #00bfb6;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #00bfb6;
+  border-bottom: 15px solid transparent;
+  right: -16px;
+  top: 0px;
+}
+
+/* The emerging W3C standard
+   that is currently Firefox-only */
+   * {
+    scrollbar-width: thin;
+    scrollbar-color: grey transparent;
+  }
+  
+  /* Works on Chrome/Edge/Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 20px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 20px;
+    border: 3px solid white;
+  }

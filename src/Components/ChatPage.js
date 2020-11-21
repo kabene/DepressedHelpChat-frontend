@@ -15,9 +15,9 @@ const ChatPage = async () => {
   let endButton = document.querySelector('#endButton');
   let sendButton = document.querySelector('#sendButton');
 
-  helpButton.addEventListener("submit", onHelp);
-  endButton.addEventListener("submit", onEnd);
-  sendButton.addEventListener("submit", onSend);
+  helpButton.addEventListener("click", onHelp);
+  endButton.addEventListener("click", onEnd);
+  sendButton.addEventListener("click", onSend);
 };
 
 const onHelp = (e) => {
@@ -30,6 +30,24 @@ const onEnd = (e) => {
 
 const onSend = (e) => {
   // Anatole code should be here!
+  let message = document.querySelector('#messageBar');
+
+  // trim() removes the whitespaces at the beggining --> " Bonjour" => "Bonjour" | "     " => ""
+  if(message.value.trim() != ""){
+    let chatBubble = document.createElement('div');
+    let chatBubbleContent = document.createTextNode(message.value);
+    chatBubble.appendChild(chatBubbleContent);
+    chatBubble.classList.add("box3", "sb13");
+
+    let chatBox = document.querySelector('#chatbox');
+    chatBox.appendChild(chatBubble);
+    
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    console.log(message.value)
+  }
+  
+  message.value = "";
 }
 
 export default ChatPage;

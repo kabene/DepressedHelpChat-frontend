@@ -2,11 +2,13 @@ import HomePage from "./HomePage.js";
 
 import ErrorPage from "./ErrorPage.js";
 
+import ChatPage from "./ChatPage.js";
+
 
 const routes = {
   "/": HomePage,
   "/error": ErrorPage,
-
+  "/chat": ChatPage
 };
 
 let navBar = document.querySelector("#navBar");
