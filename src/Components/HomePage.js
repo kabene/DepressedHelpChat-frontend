@@ -6,7 +6,7 @@ let homePage = `<div class="container body-content">
         <img alt="Image html" width="50%" height="90%" style="max-height:500px;max-width:500px;"
             src="https://cdn.discordapp.com/attachments/770010112139853894/778555438005485568/Screenshot_2020-11-18_unknown_png_-_Vector_Magic.png"/>
     </div>
-    <form>
+    <form method="get">
         <div class="row justify-content-center">
             <div class="col-xs-4">
                 <div class="row justify-content-center" style="padding-top:10px;">
@@ -49,7 +49,8 @@ const HomePage = async () => {
   setLayout("Home");
   let page = document.querySelector("#page");
   page.innerHTML  = homePage;
-
+  let registerForm = document.querySelector("form");
+  registerForm.addEventListener("submit", onRegister);
 var _createClass = function () {
     function e(e, o) {
         for (var t = 0; t < o.length; t++) {
@@ -109,8 +110,44 @@ var CookieBanner = function () {
     }]), e
 }(), cb = new CookieBanner;
 
-
-
 };
+
+const onRegister = (e) => {
+    e.preventDefault();
+    let user = {
+      userName: document.getElementById("name").value,
+    };
+                                                                        // fetch doit être modifier @Anatole HUET!!!!!!!!!!!!!!
+    fetch("/api/users/", {
+      method: "GET",
+      body: JSON.stringify(user), // body data type must match "Content-Type" header
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
+        return response.json();
+      })
+      .then((data) => onUserRegistration(data))
+      .catch((err) => onError(err));
+  };
+  
+  const onUserRegistration = (userData) => {
+    console.log("onUserRegistration", userData);
+    const user = {...userData, isAutenticated:true};
+    setUserSessionData(user);
+    // re-render the navbar for the authenticated user
+    Navbar();
+    RedirectUrl("/chat");
+  };
+  
+  const onError = (err) => {
+    let messageBoard = document.querySelector("#messageBoard");
+    let errorMessage = "";
+    if (err.message.includes("409")) errorMessage = "This user is already registered.";
+    else errorMessage = err.message;
+    console.log(errorMessage);
+  };
 
 export default HomePage;
