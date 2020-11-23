@@ -152,7 +152,6 @@ const onRegister = (e) => {
     let user = {
         userName: document.getElementById("name").value,
     };
-    // fetch doit être modifier @Anatole HUET!!!!!!!!!!!!!!
     fetch("/api/users/", {
         method: "GET",
         body: JSON.stringify(user), // body data type must match "Content-Type" header
@@ -172,7 +171,7 @@ const onUserRegistration = (userData) => {
     console.log("onUserRegistration", userData);
     const user = {...userData, isAutenticated:true};
     setUserSessionData(user);
-    // re-render the navbar for the authenticated user
+    // re-render the navbar for the authenticated user                          A VERIF...
     Navbar();
     RedirectUrl("/chat");
 };
