@@ -1,3 +1,5 @@
+
+
 import {setLayout} from "../utils/render.js";
 import ChatPage from "./ChatPage";
 
@@ -16,7 +18,7 @@ let homePage = `<div class="container body-content">
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-xs-3">
+            <div class="col-xs-3 col-md-5 col-sm-4" >
                 <div class="row justify-content-center" style="padding-top:10px;">
                     <button class="btn btn-primary" id="chatPage" data-uri="/ChatPage">Lancer la discussion</button>
                 </div>
@@ -57,7 +59,6 @@ const chatPageAdd = () => {
     chatpage.onclick = ChatPage;
     let nomUser = document.getElementById("name").value;
     console.log(nomUser);
-
 }
 const cookieCall = () => {
     var _createClass = function () {
