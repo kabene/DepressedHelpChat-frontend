@@ -57,7 +57,6 @@ a {
   margin-top: -2.5%;
   font-weight: bold;
   font-size: 0.9em;
-  padding-top: 0.8%;
   cursor: pointer;
 }
 
@@ -135,7 +134,7 @@ a {
     scrollbar-width: thin;
     scrollbar-color: grey transparent;
   }
-  
+
   /* Works on Chrome/Edge/Safari */
   *::-webkit-scrollbar {
     width: 10px;

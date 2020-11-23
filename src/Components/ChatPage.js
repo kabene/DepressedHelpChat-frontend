@@ -1,13 +1,16 @@
+import EndPage from "./EndPage";
+
 let chatPage = `<div id="menuContainer">
-<div id="help">?</div>
-<div id="endButton">Terminer la discussion</div>
+    <button id="help" > ?</button>
+    <button  id="endButton" data-uri="/EndPage">Terminer la discussion</button>
 </div>
 <div id="chatbox"></div>
 <input type="text" id="messageBar">
 <div id="sendButton">Envoyer</div>
 `;
 
-const ChatPage = async () => {
+const ChatPage = async (e) => {
+  e.preventDefault();
   let page = document.querySelector("#page");
   page.innerHTML = chatPage;
 
@@ -21,7 +24,11 @@ const ChatPage = async () => {
 
   messageBar.addEventListener("keyup", onEnter);
   sendButton.addEventListener("click", onSend);
+
+  let endPage=document.querySelector("#endButton");
+  endPage.onclick= EndPage;
 };
+
 
 const onHelp = (e) => {
   // Code for the ? button 
@@ -51,15 +58,16 @@ const onSend = (e) => {
 
     let chatBox = document.querySelector('#chatbox');
     chatBox.appendChild(chatBubble);
-    
+
     chatBox.scrollTop = chatBox.scrollHeight;
 
     // faire fetch au backend
 
   }
-  
   message.value = "";
   document.querySelector('#messageBar').focus();
 }
+
+
 
 export default ChatPage;
