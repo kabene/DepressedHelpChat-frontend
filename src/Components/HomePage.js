@@ -9,7 +9,7 @@ let homePage = `<div class="container body-content">
         <img alt="Image html" width="50%" height="90%" style="max-height:500px;max-width:500px;"
             src="https://cdn.discordapp.com/attachments/770010112139853894/778555438005485568/Screenshot_2020-11-18_unknown_png_-_Vector_Magic.png"/>
     </div>
-   <!-- <form method="get" id="onRegister">-->
+    <form method="get" >
         <div class="row justify-content-center">
             <div class="col-xs-4">
                 <div class="row justify-content-center" style="padding-top:10px;">
@@ -21,11 +21,11 @@ let homePage = `<div class="container body-content">
         <div class="row justify-content-center">
             <div class="col-xs-3 col-md-5 col-sm-4" >
                 <div class="row justify-content-center" style="padding-top:10px;">
-                    <button class="btn btn-primary" id="chatPage" data-uri="/ChatPage">Lancer la discussion</button>
+                    <button class="btn btn-primary" type="submit" id="chatPage" data-uri="/ChatPage">Lancer la discussion</button>
                 </div>
             </div>
         </div>
-    <!--</form>-->
+    </form>
     <div class="row justify-content-center" style="padding-top:10px;">
         <label>Cette application est un chatbot qui a pour objectif d&#39;aider des personnes a soucis emotionnels.<br/>
         Discutez avec lui, dites lui ce que vous desirez !</label>
@@ -52,8 +52,8 @@ const HomePage = async () => {
 
     let page = document.querySelector("#page");
     page.innerHTML = homePage;
-   // let registerForm = document.querySelector("form");
-   // registerForm.addEventListener("submit", onRegister);
+    let registerForm = document.querySelector("form");
+    registerForm.addEventListener("submit", onRegister);
     cookieCall();
     chatPageAdd();
 }
@@ -146,4 +146,43 @@ function deleteAllCookies() {
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
 }
+
+const onRegister = (e) => {
+    e.preventDefault();
+    let user = {
+        userName: document.getElementById("name").value,
+    };
+    // fetch doit être modifier @Anatole HUET!!!!!!!!!!!!!!
+    fetch("/api/users/", {
+        method: "GET",
+        body: JSON.stringify(user), // body data type must match "Content-Type" header
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((response) => {
+            if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
+            return response.json();
+        })
+        .then((data) => onUserRegistration(data))
+        .catch((err) => onError(err));
+};
+
+const onUserRegistration = (userData) => {
+    console.log("onUserRegistration", userData);
+    const user = {...userData, isAutenticated:true};
+    setUserSessionData(user);
+    // re-render the navbar for the authenticated user
+    Navbar();
+    RedirectUrl("/chat");
+};
+
+const onError = (err) => {
+    let messageBoard = document.querySelector("#messageBoard");
+    let errorMessage = "";
+    if (err.message.includes("409")) errorMessage = "This user is already registered.";
+    else errorMessage = err.message;
+    console.log(errorMessage);
+};
+
 export default HomePage;
