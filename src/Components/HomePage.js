@@ -9,7 +9,7 @@ let homePage = `<div class="container body-content">
         <img alt="Image html" width="50%" height="90%" style="max-height:500px;max-width:500px;"
             src="https://cdn.discordapp.com/attachments/770010112139853894/778555438005485568/Screenshot_2020-11-18_unknown_png_-_Vector_Magic.png"/>
     </div>
-    
+    <form method="get">
         <div class="row justify-content-center">
             <div class="col-xs-4">
                 <div class="row justify-content-center" style="padding-top:10px;">
@@ -17,6 +17,7 @@ let homePage = `<div class="container body-content">
                 </div>
             </div>
         </div>
+        </form>
         <div class="row justify-content-center">
             <div class="col-xs-3 col-md-5 col-sm-4" >
                 <div class="row justify-content-center" style="padding-top:10px;">
@@ -47,11 +48,12 @@ let homePage = `<div class="container body-content">
 `;
 let nomUser = "";
 const HomePage = async () => {
-  setLayout("Home");
-  let page = document.querySelector("#page");
-  page.innerHTML  = homePage;
-  let registerForm = document.querySelector("form");
-  registerForm.addEventListener("submit", onRegister);
+    setLayout("Home");
+    let page = document.querySelector("#page");
+    page.innerHTML = homePage;
+    let registerForm = document.querySelector("form");
+    registerForm.addEventListener("submit", onRegister);
+}
 var _createClass = function () {
     function e(e, o) {
         for (var t = 0; t < o.length; t++) {
