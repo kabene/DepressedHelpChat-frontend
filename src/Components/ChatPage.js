@@ -69,5 +69,4 @@ const onSend = (e) => {
 }
 
 
-
 export default ChatPage;
