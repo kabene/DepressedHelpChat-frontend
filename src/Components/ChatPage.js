@@ -14,9 +14,12 @@ const ChatPage = async () => {
   let helpButton = document.querySelector('#help');
   let endButton = document.querySelector('#endButton');
   let sendButton = document.querySelector('#sendButton');
+  let messageBar = document.querySelector('#messageBar');
 
   helpButton.addEventListener("click", onHelp);
   endButton.addEventListener("click", onEnd);
+
+  messageBar.addEventListener("keyup", onEnter);
   sendButton.addEventListener("click", onSend);
 };
 
@@ -26,6 +29,13 @@ const onHelp = (e) => {
 
 const onEnd = (e) => {
   // Celestin code should be here!
+}
+
+const onEnter = (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    onSend();
+  }
 }
 
 const onSend = (e) => {
@@ -44,10 +54,12 @@ const onSend = (e) => {
     
     chatBox.scrollTop = chatBox.scrollHeight;
 
-    console.log(message.value)
+    // faire fetch au backend
+
   }
   
   message.value = "";
+  document.querySelector('#messageBar').focus();
 }
 
 export default ChatPage;
