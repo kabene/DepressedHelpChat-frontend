@@ -1,3 +1,4 @@
+
 let endPage = `<div class="gc">
     <p>Merci d'avoir utilisé le service et courage!</p>
     <br>
@@ -11,9 +12,9 @@ let endPage = `<div class="gc">
 <button type="button" class="btn btn-secondary" id="btnRel">relancer une discussion</button>`;
 
 const EndPage = () => {
-  setLayout("EndPage");
+  //setLayout("EndPage");
   let page = document.querySelector("#page");
-  return (page.innerHTML = endPage);
+  page.innerHTML = endPage;
 };
 
 export default EndPage;
