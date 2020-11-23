@@ -9,7 +9,7 @@ let homePage = `<div class="container body-content">
         <img alt="Image html" width="50%" height="90%" style="max-height:500px;max-width:500px;"
             src="https://cdn.discordapp.com/attachments/770010112139853894/778555438005485568/Screenshot_2020-11-18_unknown_png_-_Vector_Magic.png"/>
     </div>
-    <form method="get">
+   <!-- <form method="get" id="onRegister">-->
         <div class="row justify-content-center">
             <div class="col-xs-4">
                 <div class="row justify-content-center" style="padding-top:10px;">
@@ -25,7 +25,7 @@ let homePage = `<div class="container body-content">
                 </div>
             </div>
         </div>
-    
+    <!--</form>-->
     <div class="row justify-content-center" style="padding-top:10px;">
         <label>Cette application est un chatbot qui a pour objectif d&#39;aider des personnes a soucis emotionnels.<br/>
         Discutez avec lui, dites lui ce que vous desirez !</label>
@@ -49,10 +49,13 @@ let homePage = `<div class="container body-content">
 let nomUser = "";
 const HomePage = async () => {
     setLayout("Home");
+
     let page = document.querySelector("#page");
     page.innerHTML = homePage;
-    let registerForm = document.querySelector("form");
-    registerForm.addEventListener("submit", onRegister);
+   // let registerForm = document.querySelector("form");
+   // registerForm.addEventListener("submit", onRegister);
+    cookieCall();
+    chatPageAdd();
 }
 var _createClass = function () {
     function e(e, o) {
@@ -67,7 +70,6 @@ var _createClass = function () {
     chatPageAdd();
     cookieCall();
 };
-
 const chatPageAdd = () => {
     let chatpage = document.querySelector("#chatPage");
     chatpage.onclick = ChatPage;
@@ -133,5 +135,15 @@ const cookieCall = () => {
             }
         }]), e
     }(), cb = new CookieBanner;
+}
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
 }
 export default HomePage;

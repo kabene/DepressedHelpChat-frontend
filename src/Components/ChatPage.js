@@ -40,14 +40,13 @@ const endPageAdd =()=>{
   */
 
 
-  helpButton.addEventListener("click", onHelp);
-  endButton.addEventListener("click", onEnd);
-  sendButton.addEventListener("click", onSend);
-};
-
+ // helpButton.addEventListener("click", onHelp);
+ // endButton.addEventListener("click", onEnd);
+ // sendButton.addEventListener("click", onSend);
   let endPage=document.querySelector("#endButton");
   endPage.onclick= EndPage;
-}
+};
+
 
 const onHelp = (e) => {
   // Code for the ? button 
@@ -75,8 +74,9 @@ const onSend = (e) => {
 
     console.log(message.value)
   }
-
   message.value = "";
 }
+
+
 
 export default ChatPage;
