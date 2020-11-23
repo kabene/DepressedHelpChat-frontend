@@ -13,36 +13,18 @@ const ChatPage = async (e) => {
   e.preventDefault();
   let page = document.querySelector("#page");
   page.innerHTML = chatPage;
-  endPageAdd();
- // let helpButton = document.querySelector('#help');
- // let sendButton = document.querySelector('#sendButton');
- // helpButton.addEventListener("submit", onHelp);
- // sendButton.addEventListener("submit", onSend);
-};
-const endPageAdd =()=>{
-  /*
-  fetch("/api/user", {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    body: JSON.stringify(user), // body data type must match "Content-Type" header
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-      .then((response) => {
-        if (!response.ok)
-          throw new Error(
-              "Error code : " + response.status + " : " + response.statusText
-          );
-        return response.json();
-      })
-      .then((data) => onUserLogin(data))
-      .catch((err) => onError(err));
-  */
 
+  let helpButton = document.querySelector('#help');
+  let endButton = document.querySelector('#endButton');
+  let sendButton = document.querySelector('#sendButton');
+  let messageBar = document.querySelector('#messageBar');
 
- // helpButton.addEventListener("click", onHelp);
- // endButton.addEventListener("click", onEnd);
- // sendButton.addEventListener("click", onSend);
+  helpButton.addEventListener("click", onHelp);
+  endButton.addEventListener("click", onEnd);
+
+  messageBar.addEventListener("keyup", onEnter);
+  sendButton.addEventListener("click", onSend);
+
   let endPage=document.querySelector("#endButton");
   endPage.onclick= EndPage;
 };
@@ -54,6 +36,13 @@ const onHelp = (e) => {
 
 const onEnd = (e) => {
   // Celestin code should be here!
+}
+
+const onEnter = (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    onSend();
+  }
 }
 
 const onSend = (e) => {
@@ -72,9 +61,11 @@ const onSend = (e) => {
 
     chatBox.scrollTop = chatBox.scrollHeight;
 
-    console.log(message.value)
+    // faire fetch au backend
+
   }
   message.value = "";
+  document.querySelector('#messageBar').focus();
 }
 
 
