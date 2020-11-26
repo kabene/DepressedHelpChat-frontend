@@ -20,7 +20,6 @@ const ChatPage = async (e) => {
   let messageBar = document.querySelector('#messageBar');
 
   helpButton.addEventListener("click", onHelp);
-  endButton.addEventListener("click", onEnd);
 
   messageBar.addEventListener("keyup", onEnter);
   sendButton.addEventListener("click", onSend);
@@ -32,10 +31,6 @@ const ChatPage = async (e) => {
 
 const onHelp = (e) => {
   // Code for the ? button 
-}
-
-const onEnd = (e) => {
-  // Celestin code should be here!
 }
 
 const onEnter = (e) => {
@@ -62,12 +57,38 @@ const onSend = (e) => {
     chatBox.scrollTop = chatBox.scrollHeight;
 
     // faire fetch au backend
-
+    let userMessage = {
+      message : document.querySelector('#messageBar').value,
+    };
+    fetch("/api/users/handleUserMessage", {
+      method: "POST",
+      body: JSON.stringify(userMessage), // body data type must match "Content-Type" header
+      headers: {
+          "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+          if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
+          return response.json();
+      })
+      .then((data) => onBotResponse(data))
+      .catch((err) => onError(err));
   }
   message.value = "";
   document.querySelector('#messageBar').focus();
 }
 
+const onBotResponse = (data) =>{
+  // Similaire à onSend mais pour le bot + CSS à add
+  
+}
 
+const onError = (err) => {
+  let messageBoard = document.querySelector("#messageBoard");
+  let errorMessage = "";
+  if (err.message.includes("409")) errorMessage = "This user is already registered.";
+  else errorMessage = err.message;
+  console.log(errorMessage);
+};
 
 export default ChatPage;
