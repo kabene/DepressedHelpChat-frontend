@@ -80,7 +80,17 @@ const onSend = (e) => {
 
 const onBotResponse = (data) =>{
   // Similaire à onSend mais pour le bot + CSS à add
-  
+  let reponse = data.answer;
+  let chatBubble = document.createElement('div');
+  let chatBubbleContent = document.createTextNode(reponse);
+  chatBubble.appendChild(chatBubbleContent);
+  chatBubble.classList.add("boxBot", "sb14");
+
+  let chatBox = document.querySelector('#chatbox');
+  chatBox.appendChild(chatBubble);
+
+  chatBox.scrollTop = chatBox.scrollHeight;
+
 }
 
 const onError = (err) => {
