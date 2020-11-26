@@ -80,6 +80,7 @@ const onSend = (e) => {
 
 const onBotResponse = (data) =>{
   // Similaire à onSend mais pour le bot + CSS à add
+  
 }
 
 const onError = (err) => {
