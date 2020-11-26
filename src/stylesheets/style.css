@@ -148,3 +148,28 @@ a {
     border-radius: 20px;
     border: 3px solid white;
   }
+
+  .boxBot {
+    width: 300px;
+    margin: 10px 65% 10px 25px;;
+    border-radius: 15px;
+    background: #0013bd;
+    color: #fff;
+    padding: 20px;
+    font-weight: 900;
+    font-family: arial;
+    position: relative;
+  }
+
+  .sb14:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid #0013bd;
+    border-top: 15px solid #0013bd;
+    border-bottom: 15px solid transparent;
+    left: -16px;
+    top: 0px;
+  }
