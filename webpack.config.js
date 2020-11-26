@@ -12,7 +12,7 @@ module.exports = {
   devtool: "cheap-module-eval-source-map",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    port: 8000,
+    port: 80,
     host: '0.0.0.0', // server to be accessible externally
     public: "localhost", // force to open localhost instead of 0.0.0.0
     open: true, // open the default browser
