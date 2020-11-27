@@ -1,8 +1,8 @@
-import EndPage from "./EndPage";
+import { RedirectUrl } from "./Router.js";
 
 let chatPage = `<div id="menuContainer">
     <button id="help" > ?</button>
-    <button  id="endButton" data-uri="/EndPage">Terminer la discussion</button>
+    <button id="endButton">Terminer la discussion</button>
 </div>
 <div id="chatbox"></div>
 <input type="text" id="messageBar">
@@ -10,7 +10,6 @@ let chatPage = `<div id="menuContainer">
 `;
 
 const ChatPage = async (e) => {
-  e.preventDefault();
   let page = document.querySelector("#page");
   page.innerHTML = chatPage;
 
@@ -24,13 +23,16 @@ const ChatPage = async (e) => {
   messageBar.addEventListener("keyup", onEnter);
   sendButton.addEventListener("click", onSend);
 
-  let endPage=document.querySelector("#endButton");
-  endPage.onclick= EndPage;
+  endButton.addEventListener("click",onEnd);
 };
 
 
 const onHelp = (e) => {
   // Code for the ? button 
+}
+const onEnd = (e) => {
+ // console.log("onEnd");
+  RedirectUrl("/endPage");
 }
 
 const onEnter = (e) => {
