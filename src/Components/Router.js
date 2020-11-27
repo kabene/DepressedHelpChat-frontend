@@ -6,10 +6,9 @@ import EndPage from "./EndPage.js";
 
 const routes = {
   "/": HomePage,
-  "/EndPage":EndPage,
-  "/ChatPage":ChatPage,
-  "/error": ErrorPage,
-  "/chat": ChatPage
+  "/endPage":EndPage,
+  "/chatPage":ChatPage,
+  "/error": ErrorPage
 };
 
 let page = document.querySelector("#page");

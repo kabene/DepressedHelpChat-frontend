@@ -1,7 +1,9 @@
 
 
 import {setLayout} from "../utils/render.js";
-import ChatPage from "./ChatPage";
+import {setUserSessionData} from "../utils/session.js"; //getUserSessionData pour relancer la conversation
+//import ChatPage from "./ChatPage";
+import { RedirectUrl } from "./Router.js";
 
 let homePage = `<div class="container body-content">
 <div class="container">
@@ -9,7 +11,7 @@ let homePage = `<div class="container body-content">
         <img alt="Image html" width="50%" height="90%" style="max-height:500px;max-width:500px;"
             src="https://cdn.discordapp.com/attachments/770010112139853894/778555438005485568/Screenshot_2020-11-18_unknown_png_-_Vector_Magic.png"/>
     </div>
-    <form method="get" >
+    <form method="post" >
         <div class="row justify-content-center">
             <div class="col-xs-4">
                 <div class="row justify-content-center" style="padding-top:10px;">
@@ -17,11 +19,10 @@ let homePage = `<div class="container body-content">
                 </div>
             </div>
         </div>
-        </form>
         <div class="row justify-content-center">
             <div class="col-xs-3 col-md-5 col-sm-4" >
                 <div class="row justify-content-center" style="padding-top:10px;">
-                    <button class="btn btn-primary" type="submit" id="chatPage" data-uri="/ChatPage">Lancer la discussion</button>
+                    <button class="btn btn-primary" type="submit" id="btnChatPage">Lancer la discussion</button>
                 </div>
             </div>
         </div>
@@ -52,10 +53,10 @@ const HomePage = async () => {
 
     let page = document.querySelector("#page");
     page.innerHTML = homePage;
-    let registerForm = document.querySelector("form");
-    registerForm.addEventListener("submit", onRegister);
+    let btnChatPage = document.querySelector("#btnChatPage");
+    btnChatPage.addEventListener("click", onRegister);
     cookieCall();
-    chatPageAdd();
+    //chatPageAdd();
 }
 var _createClass = function () {
     function e(e, o) {
@@ -67,15 +68,16 @@ var _createClass = function () {
     setLayout("Home");
     let page = document.querySelector("#page");
     page.innerHTML = homePage;
-    chatPageAdd();
+    //chatPageAdd();
     cookieCall();
 };
+/*
 const chatPageAdd = () => {
     let chatpage = document.querySelector("#chatPage");
     chatpage.onclick = ChatPage;
     let nomUser = document.getElementById("name").value;
     console.log(nomUser);
-}
+}*/
 const cookieCall = () => {
     var _createClass = function () {
         function e(e, o) {
@@ -136,6 +138,7 @@ const cookieCall = () => {
         }]), e
     }(), cb = new CookieBanner;
 }
+
 function deleteAllCookies() {
     var cookies = document.cookie.split(";");
 
@@ -150,10 +153,11 @@ function deleteAllCookies() {
 const onRegister = (e) => {
     e.preventDefault();
     let user = {
-        userName: document.getElementById("name").value,
+        username: document.getElementById("name").value,
     };
-    fetch("/api/users/", {
-        method: "GET",
+    console.log("User : "+user.username);
+    fetch("/api/users/chat", {
+        method: "POST",
         body: JSON.stringify(user), // body data type must match "Content-Type" header
         headers: {
             "Content-Type": "application/json",
@@ -169,11 +173,11 @@ const onRegister = (e) => {
 
 const onUserRegistration = (userData) => {
     console.log("onUserRegistration", userData);
-    const user = {...userData, isAutenticated:true};
-    setUserSessionData(user);
+    const userReg = {...userData, isAutenticated:true};
+    setUserSessionData(userReg);
     // re-render the navbar for the authenticated user                          A VERIF...
-    Navbar();
-    RedirectUrl("/chat");
+    //Navbar();
+    RedirectUrl("/chatPage");
 };
 
 const onError = (err) => {
