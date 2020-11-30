@@ -28,7 +28,7 @@ let homePage = `<div class="container body-content">
         </div>
     </form>
     <div class="row justify-content-center" style="padding-top:10px;">
-        <label>Cette application est un chatbot qui a pour objectif d&#39;aider des personnes a soucis emotionnels.<br/>
+        <label>Cette application est un chatbot qui a pour objectif d&#39;aider des personnes à soucis emotionnels.<br/>
         Discutez avec lui, dites lui ce que vous desirez !</label>
     </div>
     <div class="hidden gone" id="gdpr--cookie-policy-root">
