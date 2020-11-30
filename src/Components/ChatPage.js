@@ -1,10 +1,17 @@
 import { RedirectUrl } from "./Router.js";
+import anime from 'animejs/lib/anime.es.js';
 
 let chatPage = `<div id="menuContainer">
     <button id="help" > ?</button>
     <button id="endButton">Terminer la discussion</button>
 </div>
 <div id="chatbox"></div>
+<div id="containerDot">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  &nbsp &nbsp Votre partenaire est en train d'écrire...
+</div>
 <input type="text" id="messageBar">
 <div id="sendButton">Envoyer</div>
 `;
@@ -12,6 +19,7 @@ let chatPage = `<div id="menuContainer">
 const ChatPage = async (e) => {
   let page = document.querySelector("#page");
   page.innerHTML = chatPage;
+  document.querySelector("#containerDot").style.display="none";
 
   let helpButton = document.querySelector('#help');
   let endButton = document.querySelector('#endButton');
@@ -84,17 +92,35 @@ const onSend = (e) => {
 
 const onBotResponse = (data) =>{
   // Similaire à onSend mais pour le bot + CSS à add
+  document.querySelector("#containerDot").style.display="initial";
+  let anim = anime({
+    targets: '.dot',
+    translateY: -25,
+    direction: 'alternate',
+    loop: true,
+    duration: 1500,
+    easing: function(el, i, total) {
+      return function(t) {
+        return Math.pow(Math.sin(t * (i + 1)), total);
+      }
+    }
+  });
+  anim.play();
   let reponse = data.answer;
   let chatBubble = document.createElement('div');
   let chatBubbleContent = document.createTextNode(reponse);
   chatBubble.appendChild(chatBubbleContent);
   chatBubble.classList.add("boxBot", "sb14");
+  setTimeout(() => {  
+    anim.pause(); 
+    let chatBox = document.querySelector('#chatbox');
+    chatBox.appendChild(chatBubble);
 
-  let chatBox = document.querySelector('#chatbox');
-  chatBox.appendChild(chatBubble);
-
-  chatBox.scrollTop = chatBox.scrollHeight;
-
+    chatBox.scrollTop = chatBox.scrollHeight;
+    anim.restart();
+    anim.pause();
+    document.querySelector("#containerDot").style.display="none";
+  }, reponse.length*500);
 }
 
 const onError = (err) => {
@@ -104,5 +130,7 @@ const onError = (err) => {
   else errorMessage = err.message;
   console.log(errorMessage);
 };
+
+
 
 export default ChatPage;
