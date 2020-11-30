@@ -32,6 +32,8 @@ const onHelp = (e) => {
 }
 const onEnd = (e) => {
  // console.log("onEnd");
+  localStorage.removeItem('token')
+  sessionStorage.removeItem('token')
   RedirectUrl("/endPage");
 }
 
