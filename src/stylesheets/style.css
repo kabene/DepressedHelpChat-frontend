@@ -8,6 +8,18 @@ a {
 }
 
 
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#containerDot{
+  margin-top: 42%;
+  margin-left: 24%;
+}
 
 .gc {
   text-align: center;
@@ -62,7 +74,7 @@ a {
 
 #messageBar{
   position: absolute;
-  margin-top: 42%;
+  margin-bottom: 20%;
   margin-left: 24%;
   padding-left: 1%;
   border-radius: 360px;;
@@ -76,7 +88,7 @@ a {
 
 #sendButton{
   position: absolute;
-  margin-top: 42%;
+  margin-bottom: 20%;
   margin-left: 75%;
   border-radius: 360px;;
   border: 3px solid black;
