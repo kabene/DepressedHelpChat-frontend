@@ -12,7 +12,7 @@ let chatPage = `<div id="menuContainer">
   <span class="dot"></span>
   &nbsp &nbsp Votre partenaire est en train d'écrire...
 </div>
-<input type="text" id="messageBar">
+<input type="text" id="messageBar" autocomplete="off">
 <div id="sendButton">Envoyer</div>
 `;
 
