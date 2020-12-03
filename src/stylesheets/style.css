@@ -9,15 +9,16 @@ a {
 
 
 .dot {
-  height: 25px;
-  width: 25px;
+  height: 10px;
+  width: 10px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
 }
 
 #containerDot{
-  margin-top: 42%;
+  position: fixed;
+  bottom: 15%;
   margin-left: 24%;
 }
 
@@ -48,10 +49,10 @@ a {
   border: 2px solid grey;
   border-radius: 100%;
   width: 50px;
-  height: 50px;;
-  margin-left: 87%;
+  height: 50px;
   text-align: center;
-  margin-top: -2.5%;
+  top: 8px;
+  right: 175px;
   color: indianred;
   font-weight: bold;
   font-size: 30px;
@@ -59,51 +60,56 @@ a {
 }
 
 #endButton{
-  position: absolute;
+  position: fixed;
   background-color: indianred;
   border-radius: 360px;;
   width: 160px;
   height: 50px;
-  margin-left: 90%;
+  top: 8px;
+  right: 10px;
   text-align: center;
-  margin-top: -2.5%;
   font-weight: bold;
   font-size: 0.9em;
   cursor: pointer;
 }
 
 #messageBar{
-  position: absolute;
-  margin-bottom: 20%;
-  margin-left: 24%;
-  padding-left: 1%;
+  position: fixed;
+  bottom : 8%;
+  /*right : 30%;*/
+  left: 24%;
+  padding-left: 10px;
   border-radius: 360px;;
   border: 3px solid grey;
   width: 50%;
   height: 50px;
-  padding-top: 0.1%;
+  padding-top: 3px;
   outline: none;
   cursor: pointer;
 }
 
 #sendButton{
-  position: absolute;
-  margin-bottom: 20%;
+  position: fixed;
+  bottom : 8%;
+  left : 1px;
+  right: 1px;
   margin-left: 75%;
   border-radius: 360px;;
   border: 3px solid black;
   width: 7%;
+  min-width: 120px;
   text-align: center;
   font-weight: bold;
   font-size: 0.9em;
   height: 50px;
-  padding-top: 0.6%;
+  padding-top: 10px;
+  margin-right: 5px;
   cursor: pointer;
 }
 
 #chatbox{
-  position: absolute;
-  margin-top: 2%;
+  position: fixed;
+  margin-top: 45px;
   border-radius: 10px;
   width: 60%;
   height: 70%;
@@ -113,8 +119,8 @@ a {
 }
 
 .box3 {
-  width: 300px;
-  margin: 10px 0px 10px 70%;;
+  right: 7%;
+  margin: 10px 0px 10px 70%;
   border-radius: 15px;
   background: #00bfb6;
   color: #fff;
@@ -122,6 +128,7 @@ a {
   font-weight: 900;
   font-family: arial;
   position: relative;
+  overflow: visible;
 }
 
 
@@ -162,7 +169,6 @@ a {
   }
 
   .boxBot {
-    width: 300px;
     margin: 10px 65% 10px 25px;;
     border-radius: 15px;
     background: #0013bd;
