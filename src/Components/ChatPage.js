@@ -20,7 +20,7 @@ const ChatPage = async (e) => {
   let page = document.querySelector("#page");
   page.innerHTML = chatPage;
   document.querySelector("#containerDot").style.display="none";
-
+  onBotResponse({answer:"Bonjour, comment vas-tu ? "});
   let helpButton = document.querySelector('#help');
   let endButton = document.querySelector('#endButton');
   let sendButton = document.querySelector('#sendButton');
@@ -120,7 +120,7 @@ const onBotResponse = (data) =>{
     anim.restart();
     anim.pause();
     document.querySelector("#containerDot").style.display="none";
-  }, reponse.length*500);
+  }, reponse.split(" ").length*250);
 }
 
 const onError = (err) => {
