@@ -78,6 +78,13 @@ const chatPageAdd = () => {
     console.log(nomUser);
 }*/
 const cookieCall = () => {
+    /***************************************************************************************
+     *    Title: Ahh! GDPR!
+     *    Author: Eric Brewer
+     *    Date: ?
+     *    Code version: 1
+     *    Availability: https://codepen.io/ebrewe/pen/zjQQgE
+     ***************************************************************************************/
     var _createClass = function () {
         function e(e, o) {
             for (var t = 0; t < o.length; t++) {
@@ -187,7 +194,7 @@ const onUserRegistration = (userData) => {
     console.log("onUserRegistration", userData);
     const userReg = {...userData, isAutenticated:true};
     setUserSessionData(userReg);
-    // re-render the navbar for the authenticated user                          A VERIF...
+    // re-render the navbar for the authenticated user
     //Navbar();
     RedirectUrl("/chatPage");
 };
