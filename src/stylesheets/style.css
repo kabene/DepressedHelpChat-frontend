@@ -118,6 +118,12 @@ a {
   overflow: auto;
 }
 
+/***************************************************************************************
+*    Title: speech bubbles 3
+*    Author: rajeshdn
+*    Availability: https://codepen.io/RajRajeshDn/pen/QpYqMW
+*
+***************************************************************************************/
 .box3 {
   right: 7%;
   margin: 10px 0px 10px 70%;
@@ -147,6 +153,26 @@ a {
   top: 0px;
 }
 
+.sb14:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid transparent;
+  border-right: 15px solid #0013bd;
+  border-top: 15px solid #0013bd;
+  border-bottom: 15px solid transparent;
+  left: -16px;
+  top: 0px;
+}
+
+
+/***************************************************************************************
+*    Title: Styling Scrollbars with CSS: The Modern Way to Style Scrollbars
+*    Author: William Le
+*    Availability: https://www.digitalocean.com/community/tutorials/css-scrollbars
+*
+***************************************************************************************/
 /* The emerging W3C standard
    that is currently Firefox-only */
    * {
@@ -177,17 +203,4 @@ a {
     font-weight: 900;
     font-family: arial;
     position: relative;
-  }
-
-  .sb14:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 15px solid transparent;
-    border-right: 15px solid #0013bd;
-    border-top: 15px solid #0013bd;
-    border-bottom: 15px solid transparent;
-    left: -16px;
-    top: 0px;
   }
