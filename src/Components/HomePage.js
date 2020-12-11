@@ -37,8 +37,8 @@ let homePage = `<div class="container body-content">
             <div>Ce site web enregistrera des données durant son utilisation. Après l'utilisation toutes vos données personnelles seront effacées. Nous nous engageons à respecter les règles imposées par la RGPD. Acceptez-vous les cookies pour la durée de la session ? 
             </div>
             <div class="gdpr--cookie-policy-actions">
-                <button class="gdpr--cookie-accept btn" type="button">Accepter les Cookies </button>
-                <button class="gdpr--cookie-decline btn" type="button">Desactiver les Cookies </button><a class="gdpr--cookie-close" aria-label="close banner" href="href"><i class="fa fa-times-circle"></i></a>
+                <button class="gdpr--cookie-accept btn" type="button">Accepter Cookies </button>
+                <button class="gdpr--cookie-decline btn" type="button">Refuser Cookies </button><a class="gdpr--cookie-close" aria-label="close banner" href="href"><i class="fa fa-times-circle"></i></a>
             </div>
             <!--<script>"use strict";var _createClass=function(){function e(e,o){for(var t=0;t<o.length;t++){var i=o[t];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(o,t,i){return t&&e(o.prototype,t),i&&e(o,i),o}}();function _classCallCheck(e,o){if(!(e instanceof o))throw new TypeError("Cannot call a class as a function")}var CookieBanner=function(){function e(){_classCallCheck(this,e),this.root=document.getElementById("gdpr--cookie-policy-root"),this.closeBtn=document.querySelector(".gdpr--cookie-close"),this.allowBtn=document.querySelector(".gdpr--cookie-accept"),this.declineBtn=document.querySelector(".gdpr--cookie-decline"),this.getCookie("cookies_allowed")||this.root.classList.remove("hidden","gone"),this.closeBanner=this.closeBanner.bind(this),this.allowCookies=this.allowCookies.bind(this),this.disableCookies=this.disableCookies.bind(this),this.closeBtn.addEventListener("click",this.closeBanner,!1),this.allowBtn.addEventListener("click",this.allowCookies,!1),this.declineBtn.addEventListener("click",this.disableCookies,!1)}return _createClass(e,[{key:"closeBanner",value:function(e){var o=this;e&&e.preventDefault(),this.root.classList.add("hidden"),setTimeout(function(){o.root.classList.add("gone")},800),setTimeout(function(){o.root.classList.remove("gone")},2e3),setTimeout(function(){o.root.classList.remove("hidden")},2100)}},{key:"disableCookies",value:function(){window.ga&&ga("set","anonymizeIp",!0),this.setCookie("cookies_allowed",!1,30),this.closeBanner()}},{key:"allowCookies",value:function(){this.setCookie("cookies_allowed",!0,30),this.closeBanner()}},{key:"setCookie",value:function(e,o,t){var i=new Date;i.setTime(i.getTime()+24*t*60*60*1e3);var n="expires="+i.toUTCString();document.cookie=e+"="+o+";"+n+";path=/"}},{key:"getCookie",value:function(e){for(var o=e+"=",t=decodeURIComponent(document.cookie).split(";"),i=0;i<t.length;i++){for(var n=t[i];" "==n.charAt(0);)n=n.substring(1);if(0==n.indexOf(o))return console.log(n),n.substring(o.length,n.length)}return""}}]),e}(),cb=new CookieBanner;</script>-->
         </div>
@@ -78,6 +78,13 @@ const chatPageAdd = () => {
     console.log(nomUser);
 }*/
 const cookieCall = () => {
+    /***************************************************************************************
+     *    Title: Ahh! GDPR!
+     *    Author: Eric Brewer
+     *    Date: ?
+     *    Code version: 1
+     *    Availability: https://codepen.io/ebrewe/pen/zjQQgE
+     ***************************************************************************************/
     var _createClass = function () {
         function e(e, o) {
             for (var t = 0; t < o.length; t++) {
@@ -187,7 +194,7 @@ const onUserRegistration = (userData) => {
     console.log("onUserRegistration", userData);
     const userReg = {...userData, isAutenticated:true};
     setUserSessionData(userReg);
-    // re-render the navbar for the authenticated user                          A VERIF...
+    // re-render the navbar for the authenticated user
     //Navbar();
     RedirectUrl("/chatPage");
 };

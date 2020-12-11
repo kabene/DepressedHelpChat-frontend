@@ -11,8 +11,7 @@
  },
  "proxies": {
  "/api/": {
- "origin": "https://your_ap
-p_name.herokuapp.com/api/"
+ "origin": "https://depressedhelpchat.herokuapp.com/api/"
  }
  }
 }
