@@ -174,7 +174,7 @@ const onRegister = (e) => {
     let user = {
         username: document.getElementById("name").value,
     };
-    console.log("User : "+user.username);
+   // console.log("User : "+user.username);
     fetch("/api/users/chat", {
         method: "POST",
         body: JSON.stringify(user), // body data type must match "Content-Type" header
@@ -191,7 +191,7 @@ const onRegister = (e) => {
 };
 
 const onUserRegistration = (userData) => {
-    console.log("onUserRegistration", userData);
+    //console.log("onUserRegistration", userData);
     const userReg = {...userData, isAutenticated:true};
     setUserSessionData(userReg);
     // re-render the navbar for the authenticated user
