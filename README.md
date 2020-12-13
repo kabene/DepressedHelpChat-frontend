@@ -14,7 +14,8 @@ And you can download this repo for the front-end  but you should also downaload 
 
 ### Requirement
 Azure account with cognitive service for [sentiment analysis]https://azure.microsoft.com/fr-fr/services/cognitive-services/text-analytics/
-and insert your keys inside the DepressedHelpChat-backend/utils/authAzure.js
+and insert your keys inside the DepressedHelpChat-backend/utils/authAzure.js  .
+
 requirement:[NodeJs](https://nodejs.org/en/)
 
 ### Launching
