@@ -17,7 +17,7 @@ Azure account with cognitive service for [sentiment analysis]https://azure.micro
 and insert your keys inside the DepressedHelpChat-backend/utils/authAzure.js
 requirement:[NodeJs](https://nodejs.org/en/)
 
-###Launching
+### Launching
 first at the root of the backend repo do 
 ```bash 
 npm install
@@ -35,7 +35,7 @@ feel free to change reponses generator on  DepressedHelpChat-backend/routes/user
 it should work if there's some trouble be free to mark an issue inside one of the 2 repo 
 enjoy! 
 
-##Contributors
+## Contributors
 Editors: kabene,anaHue,Pierre-cplt,SivixayC
 
 
